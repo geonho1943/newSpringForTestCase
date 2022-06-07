@@ -16,6 +16,7 @@ class MemoryMemberRepositoryTest {
         Member result = repository.findById(member.getId()).get();
         //4:40 syso로 보는법
         Assertions.assertEquals(member,result);
-        //Assertions.assertThat(member).isEq
+        Assertions.assertThat(member).isEqualTo(result);
+        Assertions.
     }
 }
