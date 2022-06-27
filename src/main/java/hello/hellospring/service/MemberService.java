@@ -2,6 +2,7 @@ package hello.hellospring.service;
 
 import hello.hellospring.domain.Member;
 import hello.hellospring.repository.MemberRepository;
+import hello.hellospring.repository.MemoryMemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +12,6 @@ import java.util.Optional;
 @Service
 public class MemberService {
 
-    //private final MemberRepository memberRepository = new MemoryMemberRepository();
     private final MemberRepository memberRepository;
 
     @Autowired
@@ -19,9 +19,9 @@ public class MemberService {
         this.memberRepository = memberRepository;
     }
 
+
     /*회원 가입*/
     public Long join(Member member) {
-
         validateDuplicateMember(member);//이름 중복 막기
         memberRepository.save(member);
         return member.getId();
@@ -31,7 +31,7 @@ public class MemberService {
         //Member member1 = result.get();
         //result.orElseGet() 을 많이씀
         result.ifPresent(m -> {
-            throw new IllegalStateException("이름 중복 입니다.");
+            throw new IllegalStateException("이미 존재하는 회원 입니다");
         });
     }
     //전체 회원 조회
