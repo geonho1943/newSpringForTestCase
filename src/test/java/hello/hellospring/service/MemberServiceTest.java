@@ -12,7 +12,6 @@ import java.lang.management.MemoryManagerMXBean;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-
 class MemberServiceTest {
 
     MemberService memberService;
@@ -24,10 +23,10 @@ class MemberServiceTest {
         memberService = new MemberService(memberRepository);
     }
 
-    @AfterEach
-    public void afterEach(){
-        memberRepository.clearStore();
-    }
+//    @AfterEach
+//    public void afterEach(){
+//        memberRepository.clearStore();
+//    }
 
     @Test
     void 회원가입() {
