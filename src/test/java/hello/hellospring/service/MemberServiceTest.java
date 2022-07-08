@@ -23,16 +23,16 @@ class MemberServiceTest {
         memberService = new MemberService(memberRepository);
     }
 
-//    @AfterEach
-//    public void afterEach(){
-//        memberRepository.clearStore();
-//    }
+    @AfterEach
+    public void afterEach(){
+        memberRepository.clearStore();
+    }
 
     @Test
     void 회원가입() {
     //given
         Member member = new Member();
-        member.setName("hello");
+        member.setName("spring");
     //when
     Long saveId = memberService.join(member);
 

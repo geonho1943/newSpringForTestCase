@@ -101,6 +101,11 @@ public class JdbcMemberRepository implements MemberRepository {
     }
 
     @Override
+    public void clearStore() {
+
+    }
+
+    @Override
     public Optional<Member> findByName(String name) {
 
         String sql = "select * from member where name = ?";
